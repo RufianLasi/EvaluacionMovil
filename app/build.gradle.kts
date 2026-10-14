@@ -50,22 +50,17 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.compose.ui.tooling)
 
-    // Navegación y ViewModel con Jetpack Compose
     implementation("androidx.navigation:navigation-compose:2.7.7")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
 
-    // Íconos extendidos de Material Design
     implementation("androidx.compose.material:material-icons-extended")
 
-    // Persistencia Local: Room Database (Procesado con KSP 2.7.1)
     val versionRoom = "2.7.1"
     implementation("androidx.room:room-runtime:$versionRoom")
     implementation("androidx.room:room-ktx:$versionRoom")
     ksp("androidx.room:room-compiler:$versionRoom")
 
-    // Recursos Nativos: Geolocalización GPS
     implementation("com.google.android.gms:play-services-location:21.1.0")
 
-    // Carga e inspección de imágenes de cámara (Coil)
     implementation("io.coil-kt:coil-compose:2.6.0")
 }

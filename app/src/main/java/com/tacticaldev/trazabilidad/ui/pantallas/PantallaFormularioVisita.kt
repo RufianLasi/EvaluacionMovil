@@ -36,7 +36,6 @@ fun PantallaFormularioVisita(
     val contexto = LocalContext.current
     var uriFotoTemporal by remember { mutableStateOf<Uri?>(null) }
 
-    // Lista prediseñada de tiendas / locales
     val listaTiendas = listOf(
         "Tienda Central",
         "Tienda Mall Plaza Norte",
@@ -92,7 +91,6 @@ fun PantallaFormularioVisita(
                 .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            // Animación: Banner de éxito si se guardó la visita
             AnimatedVisibility(
                 visible = estado.esGuardadoExitoso,
                 enter = fadeIn() + expandVertically(),
@@ -117,7 +115,6 @@ fun PantallaFormularioVisita(
                 }
             }
 
-            // Código de Activo con error animado
             OutlinedTextField(
                 value = estado.codigoActivo,
                 onValueChange = { viewModel.alCambiarCodigoActivo(it) },
@@ -135,7 +132,6 @@ fun PantallaFormularioVisita(
                 modifier = Modifier.fillMaxWidth()
             )
 
-            // Menú desplegable para Nombre de Tienda con error animado
             ExposedDropdownMenuBox(
                 expanded = menuTiendasDesplegado,
                 onExpandedChange = { menuTiendasDesplegado = !menuTiendasDesplegado },
@@ -202,7 +198,6 @@ fun PantallaFormularioVisita(
                 }
             }
 
-            // Observaciones con error animado
             OutlinedTextField(
                 value = estado.observaciones,
                 onValueChange = { viewModel.alCambiarObservaciones(it) },
@@ -221,7 +216,6 @@ fun PantallaFormularioVisita(
                 minLines = 3
             )
 
-            // Recurso Nativo 1: Cámara con animación
             Card(modifier = Modifier.fillMaxWidth()) {
                 Column(
                     modifier = Modifier.padding(16.dp),
@@ -235,7 +229,6 @@ fun PantallaFormularioVisita(
                         Text("Capturar Foto Evidencia")
                     }
 
-                    // Despliegue animado de la foto capturada
                     AnimatedVisibility(
                         visible = estado.uriFoto != null,
                         enter = fadeIn() + expandVertically(),
@@ -255,7 +248,6 @@ fun PantallaFormularioVisita(
                         }
                     }
 
-                    // Mensaje de error animado en foto
                     AnimatedVisibility(
                         visible = estado.errorFoto != null,
                         enter = fadeIn() + expandVertically(),
@@ -273,7 +265,6 @@ fun PantallaFormularioVisita(
                 }
             }
 
-            // Recurso Nativo 2: GPS con animación
             Card(modifier = Modifier.fillMaxWidth()) {
                 Column(
                     modifier = Modifier.padding(16.dp),
@@ -295,7 +286,6 @@ fun PantallaFormularioVisita(
                         Text(if (estado.cargandoUbicacion) "Obteniendo GPS..." else "Verificar Ubicación GPS")
                     }
 
-                    // Despliegue animado de coordenadas GPS
                     AnimatedVisibility(
                         visible = estado.latitud != null && estado.longitud != null,
                         enter = fadeIn() + expandVertically(),
@@ -309,7 +299,6 @@ fun PantallaFormularioVisita(
                         }
                     }
 
-                    // Mensaje de error animado en GPS
                     AnimatedVisibility(
                         visible = estado.errorUbicacion != null,
                         enter = fadeIn() + expandVertically(),

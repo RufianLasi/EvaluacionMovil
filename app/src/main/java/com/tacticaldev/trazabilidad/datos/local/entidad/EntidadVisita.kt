@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "visitas")
 data class EntidadVisita(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
-    val rutOperario: String = "",   // Asignar "" por defecto
+    val rutOperario: String = "",
     val codigoActivo: String,
     val nombreTienda: String,
     val tipoVisita: String,

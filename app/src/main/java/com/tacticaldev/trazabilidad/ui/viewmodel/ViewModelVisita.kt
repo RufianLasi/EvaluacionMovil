@@ -26,7 +26,6 @@ class ViewModelVisita(aplicacion: Application) : AndroidViewModel(aplicacion) {
     val totalVisitas = MutableStateFlow(0)
     val fallasCriticas = MutableStateFlow(0)
 
-    // RUT del técnico en la sesión actual
     var rutOperarioActivo: String = ""
         private set
 

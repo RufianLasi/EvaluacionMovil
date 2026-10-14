@@ -26,7 +26,6 @@ fun GrafoNavegacion(viewModel: ViewModelVisita = viewModel()) {
         navController = controladorNavegacion,
         startDestination = Destinos.LOGIN
     ) {
-        // 1. Pantalla Inicial: Login
         composable(Destinos.LOGIN) {
             LoginScreen(
                 onLoginExitoso = { rutAutenticado ->
@@ -39,7 +38,6 @@ fun GrafoNavegacion(viewModel: ViewModelVisita = viewModel()) {
             )
         }
 
-        // 2. Pantalla Principal / Menú
         composable(Destinos.INICIO) {
             PantallaInicio(
                 viewModel = viewModel,
@@ -54,7 +52,6 @@ fun GrafoNavegacion(viewModel: ViewModelVisita = viewModel()) {
             )
         }
 
-        // 3. Pantalla Formulario de Registro
         composable(Destinos.FORMULARIO) {
             PantallaFormularioVisita(
                 viewModel = viewModel,
@@ -62,7 +59,6 @@ fun GrafoNavegacion(viewModel: ViewModelVisita = viewModel()) {
             )
         }
 
-        // 4. Pantalla Historial de Visitas
         composable(Destinos.HISTORIAL) {
             PantallaHistorialVisitas(
                 viewModel = viewModel,

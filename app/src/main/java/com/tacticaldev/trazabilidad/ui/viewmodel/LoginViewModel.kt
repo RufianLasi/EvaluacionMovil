@@ -33,7 +33,6 @@ class LoginViewModel : ViewModel() {
         var esValido = true
 
         val rutLimpio = rutInput.trim().uppercase()
-        // Valida formato RUT con guión (ej: 12345678-9 o 12.345.678-9)
         val regexRut = Regex("^[0-9]{1,2}\\.?[0-9]{3}\\.?[0-9]{3}-[0-9Kk]{1}$")
 
         if (rutLimpio.isBlank()) {
